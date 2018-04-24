@@ -27,6 +27,7 @@ defmodule ChatApiWeb.Router do
 
   scope "/api", ChatApiWeb do
     resources("/users", UserController, only: [:create])
+    post("/sessions", SessionController, :create)
   end
 
   scope "/api", ChatApiWeb do
@@ -45,7 +46,6 @@ defmodule ChatApiWeb.Router do
 
   scope "/api", ChatApiWeb do
     pipe_through([:api])
-    post("/sessions", SessionController, :create)
     delete("/sessions", SessionController, :delete)
     post("/sessions/refresh", SessionController, :refresh)
   end
