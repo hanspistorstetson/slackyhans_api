@@ -45,7 +45,14 @@ defmodule ChatApiWeb.Endpoint do
     signing_salt: "+6G85mGP"
   )
 
-  plug(CORSPlug, origin: ["http://slackyhans.s3-website-us-east-1.amazonaws.com"])
+  plug(
+    CORSPlug,
+    origin: [
+      "http://slackyhans.s3-website-us-east-1.amazonaws.com",
+      "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com/"
+    ]
+  )
+
   plug(ChatApiWeb.Router)
 
   @doc """

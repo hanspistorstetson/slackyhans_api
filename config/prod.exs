@@ -19,7 +19,10 @@ config :chat_api, ChatApiWeb.Endpoint,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
-  check_origin: ["http://slackyhans.s3-website-us-east-1.amazonaws.com"]
+  check_origin: [
+    "http://slackyhans.s3-website-us-east-1.amazonaws.com",
+    "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com/"
+  ]
 
 config :chat_api, ChatApi.Repo,
   adapter: Ecto.Adapters.Postgres,
