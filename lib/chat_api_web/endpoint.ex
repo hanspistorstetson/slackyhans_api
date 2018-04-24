@@ -48,8 +48,8 @@ defmodule ChatApiWeb.Endpoint do
   plug(
     CORSPlug,
     origin: [
-      "http://slackyhans.s3-website-us-east-1.amazonaws.com",
-      "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com/"
+      "stetsoncsci.com",
+      "www.stetsoncsci.com"
     ]
   )
 
