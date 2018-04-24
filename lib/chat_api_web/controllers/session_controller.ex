@@ -5,6 +5,8 @@ defmodule ChatApiWeb.SessionController do
   alias ChatApi.Auth.Auth
 
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
+    IO.inspect(ChatApiWeb.Router.Helpers.url(conn) <> conn.request_path)
+
     Auth.authenticate_user(email, password)
     |> login_reply(conn)
   end
