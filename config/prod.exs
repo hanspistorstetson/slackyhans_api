@@ -20,8 +20,8 @@ config :chat_api, ChatApiWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
   check_origin: [
-    "stetsoncsci.com",
-    "www.stetsoncsci.com",
+    "http://stetsoncsci.com",
+    "http://www.stetsoncsci.com",
     "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com"
   ]
 
