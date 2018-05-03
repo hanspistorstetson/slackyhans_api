@@ -39,6 +39,7 @@ defmodule ChatApiWeb.Router do
       resources("/messages", MessageController, only: [:index])
     end
 
+    get "/users/all", UserController, :getUsers
     post("/rooms/:id/join", RoomController, :join)
 
     # resources("/users", UserController, only: [:create])

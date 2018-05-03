@@ -1,6 +1,6 @@
 defmodule ChatApiWeb.UserController do
   use ChatApiWeb, :controller
-
+  import Ecto.Query
   alias ChatApi.ChatApi.User
 
   def create(conn, params) do
@@ -22,9 +22,23 @@ defmodule ChatApiWeb.UserController do
     end
   end
 
-  def rooms(conn, _params) do
+  def rooms(conn, _pasrams) do
     current_user = ChatApi.Auth.Guardian.Plug.current_resource(conn)
     rooms = ChatApi.Repo.all(Ecto.assoc(current_user, :rooms))
     render(conn, ChatApiWeb.RoomView, "index.json", %{rooms: rooms})
+  end
+
+  def getUsers(conn, _params) do
+    user = ChatApi.Auth.Guardian.Plug.current_resource(conn)
+    query = Ecto.Query.from(u in ChatApi.ChatApi.User, where: u.email != ^user.email)
+    users = ChatApi.Repo.all(query)
+    query = (Ecto.assoc(user, :friends))
+
+    ChatApi.ChatApi.User
+    |> join(:inner, [u], c in assoc(u, :friends))
+    |> ChatApi.Repo.all
+    |> IO.inspect
+
+    render(conn, ChatApiWeb.UserView, "index.json", %{users: users})
   end
 end

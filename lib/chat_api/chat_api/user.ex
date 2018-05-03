@@ -9,6 +9,7 @@ defmodule ChatApi.ChatApi.User do
     field(:password_hash, :string)
     field(:password, :string, virtual: true)
     many_to_many(:rooms, ChatApi.ChatApi.Room, join_through: "user_rooms")
+    many_to_many(:friends, ChatApi.ChatApi.User, join_through: "friends", join_keys: [user1_id: :id, user2_id: :id])
     has_many(:message, ChatApi.ChatApi.Message)
 
     timestamps()
