@@ -49,8 +49,8 @@ defmodule ChatApiWeb.Endpoint do
     CORSPlug,
     origin: [
       "http://stetsoncsci.com",
-      "http://www.stetsoncsci.com",
       "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com",
+      "http://www.stetsoncsci.com",
       "http://localhost:3000",
       "http://frontend"
     ]
