@@ -51,7 +51,8 @@ defmodule ChatApiWeb.Endpoint do
       "http://stetsoncsci.com",
       "http://www.stetsoncsci.com",
       "http://stetsoncsci.com.s3-website-us-east-1.amazonaws.com",
-      "http://localhost:3000"
+      "http://localhost",
+      "http://frontend"
     ]
   )
 
