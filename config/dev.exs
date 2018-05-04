@@ -59,6 +59,6 @@ config :chat_api, ChatApi.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "chat_api_dev",
+  database: "chat_api",
   hostname: "db",
   pool_size: 10
